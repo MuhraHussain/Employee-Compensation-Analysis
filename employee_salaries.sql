@@ -124,11 +124,6 @@ UPDATE emp_salaries
 SET BasePay = BasePay * 1.1
 WHERE JobTitle LIKE '%Manager%';
 
--- Delete employees with no overtime pay
 
-SELECT COUNT(*) FROM emp_salaries
-WHERE OvertimePay = 0;
-DELETE FROM emp_salaries
-WHERE OvertimePay = 0;
 
 
