@@ -39,14 +39,14 @@ This step was performed in Excel, with the detailed steps below:
 
 ### Exploratory Data Analysis
 
-  Inspection:
+  **Inspection:**
   
   - Reviewed the dataset structure, including column names, data types, and missing values.
   - Noted key columns like BasePay, OvertimePay, TotalPay, and JobTitle for analysis.
   - Inspected column-level data for anomalies or patterns.
   - Identified outliers in salary-related fields for further investigation.
 
-  Key Observations:
+  **Key Observations:**
 
   - Found discrepancies in overtime pay, with many employees having 0 values.
   - Observed a wide range of salaries across job titles.
@@ -54,7 +54,7 @@ This step was performed in Excel, with the detailed steps below:
 
 ### Data Analysis
 
-Step 1: Database Creation
+**Step 1: Database Creation**
 
 The first step in any SQL-based data analysis project is to set up a database to store and organize your data. In this case, I created a database called Salaries and selected it for use.
 
@@ -62,19 +62,20 @@ The first step in any SQL-based data analysis project is to set up a database to
 CREATE DATABASE Salaries;
 USE Salaries;
 ```
-Step 2: Import Cleaned Dataset 
+**Step 2: Import Cleaned Dataset**
+
 Imported the dataset using the import wizard into a newly created table [emp_salaries]
 
-Step 3: Queries
+**Step 3: Queries**
 
-Display All Data 
+**Display All Data**
 
 This query retrieves all rows and columns from the emp_salaries table, providing a complete view of the dataset. It helps in understanding the structure of the table and the data it contains.
 
 ```sql
 SELECT * FROM emp_salaries;
 ```
-Renaming Column 
+**Renaming Column** 
 
 This query is used to rename the Id column to ID for better readability.
 
@@ -82,7 +83,7 @@ This query is used to rename the Id column to ID for better readability.
 ALTER TABLE emp_salaries
 RENAME COLUMN Id to ID;
 ```
-Identifying Duplicate Records
+**Identifying Duplicate Records**
 
 This query is used to check for duplicate entries in the emp_salaries table based on the ID column. It ensures data integrity by highlighting any instances where the same ID appears more than once.
 
@@ -90,20 +91,20 @@ This query is used to check for duplicate entries in the emp_salaries table base
 SELECT ID, COUNT(*) FROM emp_salaries
 GROUP BY Id HAVING COUNT(*) >1;
 ```
-Display Employee Names and Their Job Titles
+**Display Employee Names and Their Job Titles**
 
 ```sql
 SELECT EmployeeName, JobTitle 
 FROM emp_salaries;
 ```
-Total Number of Employees
+**Total Number of Employees**
 
 This query counts the total number of rows in the emp_salaries table, assuming each row corresponds to one employee.
 
 ```sql
 SELECT COUNT(*) AS Total_Employees FROM emp_salaries;
 ```
-Unique Job Titles
+**Unique Job Titles**
 
 This query retrieves all the unique job titles from the emp_salaries table, ensuring that no duplicates are included in the result.
 
@@ -117,7 +118,7 @@ This would return the total count of unique job titles.
 SELECT COUNT(DISTINCT JobTitle) AS Unique_Job_Titles 
 FROM emp_salaries;
 ```
-Show Average Salary by Job Title
+**Show Average Salary by Job Title**
 
 This query calculates the average salary for each job title in the dataset and orders the results from the highest to the lowest average salary. It helps to identify which positions are the highest paying and can be used for compensation analysis.
 
@@ -127,7 +128,7 @@ FROM emp_salaries
 GROUP BY JobTitle
 ORDER BY AverageSalary DESC;
 ```
-Count of FT vs. PT Employees
+**Count of FT vs. PT Employees**
 
 The query groups employees by their work status (FT or PT) and counts the total number of employees in each category. This information helps organizations analyze their workforce composition and adjust staffing strategies if needed.
 
@@ -136,7 +137,7 @@ SELECT Status, COUNT(*) AS TotalEmployees
 FROM emp_salaries
 GROUP BY Status;
 ```
-Compare Average Salaries of Full-Time (FT) vs. Part-Time (PT) Employees
+**Compare Average Salaries of Full-Time (FT) vs. Part-Time (PT) Employees**
 
 The query groups employees by their work status (FT or PT) and calculates the average salary for each group. This provides an overview of salary differences based on employment type, offering a basis for further analysis or adjustment of pay structures.
 
@@ -145,7 +146,7 @@ SELECT Status, ROUND(AVG(TotalPay), 2) AS AvgSalary
 FROM emp_salaries
 GROUP BY Status;
 ```
-Employees Who Are Paid Above the Average Salary
+**Employees Who Are Paid Above the Average Salary**
 
 The query selects employees whose total pay exceeds the company-wide average salary, calculated using a subquery. The results are ordered by salary in descending order, making it easy to identify the highest-paid employees.
 
@@ -155,7 +156,7 @@ FROM emp_salaries
 WHERE TotalPay > (SELECT AVG(TotalPay) FROM emp_salaries)
 ORDER BY TotalPay DESC;
 ```
-Percentage of Employees in Each Job Category
+**Percentage of Employees in Each Job Category**
 
 The query calculates the proportion of employees in each job category by dividing the number of employees in a specific job title by the total number of employees. The result is rounded to two decimal places and sorted by the highest percentage.
 
@@ -166,7 +167,7 @@ GROUP BY JobTitle
 ORDER BY Percentage DESC;
 ```
 
-Employees with Significant Overtime Pay
+**Employees with Significant Overtime Pay**
 
 The query retrieves distinct job titles and their corresponding overtime pay for employees whose overtime pay exceeds $50,000. This helps focus on high overtime earners and associated job titles without duplicating results.
 
@@ -176,7 +177,7 @@ FROM emp_salaries
 WHERE OvertimePay > 50000;
 ```
 
-Average Base Pay for All Employees
+**Average Base Pay for All Employees**
 
 This query calculates the average base salary for all employees in the dataset. The result provides a single value that represents the organization's overall base salary benchmark.
 
@@ -185,7 +186,7 @@ SELECT AVG(BasePay) AS "Average Base Pay"
 FROM emp_salaries;
 ```
 
-Top 10 Highest Paid Employees
+**Top 10 Highest Paid Employees**
 
 The query retrieves the names and total pay of employees, sorted in descending order of total pay, and limits the results to the top 10 earners. This provides a focused view of the highest-paid individuals in the organization.
 
@@ -196,7 +197,7 @@ ORDER BY TotalPay DESC
 LIMIT 10;
 ```
 
-Average Pay Components for Each Employee
+**Average Pay Components for Each Employee**
 
 The query computes the average of three pay components (Base Pay, Overtime Pay, and Other Pay) for each employee. This provides a personalized breakdown of the average compensation across different earnings categories.
 
@@ -205,7 +206,7 @@ SELECT EmployeeName, (BasePay + OvertimePay + OtherPay) / 3 AS Avg_Payments
 FROM emp_salaries;
 ```
 
-Employees with "Manager" in Their Job Title
+**Employees with "Manager" in Their Job Title**
 
 The query filters employees whose job titles contain the word "Manager" by using the LIKE operator with a wildcard (%). This ensures that any title with "Manager" (e.g., "Project Manager," "Sales Manager") is included in the results.
 
@@ -215,7 +216,7 @@ FROM emp_salaries
 WHERE JobTitle LIKE '%Manager%';
 ```
 
-Employees with Total Pay Between $50,000 and $75,000
+**Employees with Total Pay Between $50,000 and $75,000**
 
 The query retrieves all columns for employees whose total pay is between $50,000 and $75,000. The WHERE clause specifies the range using >= (greater than or equal to) and <= (less than or equal to) operators.
 
@@ -225,7 +226,7 @@ FROM emp_salaries
 WHERE TotalPay >= 50000 AND TotalPay <= 75000;
 ```
 
-Employees with Base Pay Less Than $50,000 or Total Pay Greater Than $100,000
+**Employees with Base Pay Less Than $50,000 or Total Pay Greater Than $100,000**
 
 The query selects all employees whose base pay is less than $50,000 or whose total pay exceeds $100,000. The OR operator is used to include both conditions, so employees fulfilling either criterion will be included in the results.
 
@@ -235,7 +236,7 @@ FROM emp_salaries
 WHERE BasePay < 50000 OR TotalPay > 100000;
 ```
 
-Employees with Total Pay Benefits Between $125,000 and $150,000 and Job Title Containing "Director"
+**Employees with Total Pay Benefits Between $125,000 and $150,000 and Job Title Containing "Director"**
 
 The query retrieves all employees whose total pay benefits fall within the specified range and whose job title includes "Director." The BETWEEN operator is used to filter the pay range, and the LIKE operator with a wildcard (%) ensures that any job title containing "Director" (e.g., "Sales Director," "Project Director") is included.
 
@@ -246,7 +247,7 @@ WHERE TotalPayBenefits BETWEEN 125000 AND 150000
 AND JobTitle LIKE '%Director%';
 ```
 
-Employees Ordered by Total Pay Benefits in Descending Order
+**Employees Ordered by Total Pay Benefits in Descending Order**
 
 The query retrieves all employee details and orders the results by the TotalPayBenefits column in descending order. This allows for easy identification of the highest-paid employees based on their total compensation.
 
@@ -255,7 +256,7 @@ SELECT *
 FROM emp_salaries 
 ORDER BY TotalPayBenefits DESC;
 ```
-Job Titles with an Average Base Pay of at Least $100,000
+**Job Titles with an Average Base Pay of at Least $100,000**
 
 The query calculates the average base pay for each job title using the AVG() function. The HAVING clause filters the results to include only those job titles with an average base pay of at least $100,000. The results are then sorted in descending order to show the highest-paying job titles first.
 
@@ -267,7 +268,7 @@ HAVING AVG(BasePay) >= 100000
 ORDER BY AVG(BasePay) DESC;
 ```
 
-Update Base Pay of Managers by 10%
+**Update Base Pay of Managers by 10%**
 
 The query updates the BasePay column for all employees whose job titles contain the word "Manager." It applies a 10% increase by multiplying the current BasePay by 1.1 (representing a 10% increase). The WHERE clause filters the employees to only include those with "Manager" in their job title.
 
@@ -279,45 +280,45 @@ WHERE JobTitle LIKE '%Manager%';
 
 ### Results and Findings
 
-Salary Trends and Job Titles:
+**Salary Trends and Job Titles:**
 
   - Average Salaries: Identified the job titles with the highest and lowest average salaries, highlighting roles such as     
     [e.g.,   "Directors"] as top earners.
   - Full-Time vs. Part-Time: Found that full-time employees earn significantly higher average salaries than part-time         
     employees.
 
-Compensation Insights:
+**Compensation Insights:**
 
   - Overtime Pay: Discovered that only [X]% of employees earn significant overtime pay, with a small subset earning over   
     $50,000 in overtime.
   - Top Earners: Highlighted the 10 highest-paid employees, showing a concentration of high total pay in [specific 
     departments or roles].
 
-Anomalies and Interesting Observations:
+**Anomalies and Interesting Observations:**
 
   - Identified unusual cases where base pay was low but total pay was high, likely due to significant overtime or bonuses.
   - Observed employees with no overtime pay who still had above-average total compensation, possibly due to bonuses or other      benefits.
     
 ### Recommendations
 
-Optimize Compensation for Key Roles:
+**Optimize Compensation for Key Roles:**
 
   - High-paying roles like [e.g., "Directors"] contribute significantly to total payroll costs. Regular reviews of     
     compensation packages can ensure they align with industry standards and performance metrics.
 
-Analyze High Overtime Costs:
+**Analyze High Overtime Costs:**
 
   - Employees earning over $50,000 in overtime pay may indicate workload imbalances or inefficiencies. Conduct workload     
     audits to optimize staffing and redistribute tasks to reduce dependency on overtime.
 
-Retain Top Talent:
+**Retain Top Talent:**
 
   - The top 10 highest-paid employees represent key personnel in the organization. Consider offering incentives, bonuses, or      career advancement opportunities to retain these individuals.
 
 ### Key Focus Areas for Improvement
 
-- Employee Efficiency: Reduce overtime dependency to minimize costs.
-- Fair Compensation Practices: Conduct market analysis to ensure fairness in pay.
-- Workforce Development: Invest in training programs for high-impact roles.
+- **Employee Efficiency:** Reduce overtime dependency to minimize costs.
+- **Fair Compensation Practices:** Conduct market analysis to ensure fairness in pay.
+- **Workforce Development:** Invest in training programs for high-impact roles.
 
 
