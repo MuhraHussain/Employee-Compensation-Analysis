@@ -277,7 +277,8 @@ FROM emp_salaries;
 
 Output:
 
-![emp_avg_BP_OTP_OP_x](https://github.com/user-attachments/assets/c5722b25-6c6e-4122-bd22-bce9491d7253)
+![emp_avg_BP_OTP_OP_x](https://github.com/user-attachments/assets/c66ddcb9-9d16-42cf-acae-c4757ac8b7bd)
+
 
 **Employees with "Manager" in Their Job Title**
 
