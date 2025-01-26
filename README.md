@@ -10,6 +10,7 @@ Employee Compensation Insights: Data Cleaning, Preparation, and Analysis Using E
 - [Data Analysis](#data-analysis)
 - [Results and Findings](#results-and-findings)
 - [Recommendations](#recommendations)
+- [Key Focus Areas for Improvement](#key-focus-areas-for-improvement)
 
 ### Project Overview
 
