@@ -75,6 +75,11 @@ This query retrieves all rows and columns from the emp_salaries table, providing
 ```sql
 SELECT * FROM emp_salaries;
 ```
+
+Output:
+
+![select_all_from_table_x](https://github.com/user-attachments/assets/26804129-7a8c-4d47-af88-31cde2883340)
+
 **Renaming Column** 
 
 This query is used to rename the Id column to ID for better readability.
@@ -91,12 +96,22 @@ This query is used to check for duplicate entries in the emp_salaries table base
 SELECT ID, COUNT(*) FROM emp_salaries
 GROUP BY Id HAVING COUNT(*) >1;
 ```
+
+Output:
+
+![duplicate_check_ID_x](https://github.com/user-attachments/assets/12317f5c-62dd-4783-83f7-6067a404ecfd)
+
 **Display Employee Names and Their Job Titles**
 
 ```sql
 SELECT EmployeeName, JobTitle 
 FROM emp_salaries;
 ```
+
+Output:
+
+![emp_name_jobtitle_x](https://github.com/user-attachments/assets/4252ef7c-1917-4f4c-9724-fdbe281c50dc)
+
 **Total Number of Employees**
 
 This query counts the total number of rows in the emp_salaries table, assuming each row corresponds to one employee.
@@ -104,6 +119,12 @@ This query counts the total number of rows in the emp_salaries table, assuming e
 ```sql
 SELECT COUNT(*) AS Total_Employees FROM emp_salaries;
 ```
+
+Output:
+
+![emp_num_count_x](https://github.com/user-attachments/assets/94511066-879a-4243-a3ef-99e56247221d)
+
+
 **Unique Job Titles**
 
 This query retrieves all the unique job titles from the emp_salaries table, ensuring that no duplicates are included in the result.
@@ -112,12 +133,23 @@ This query retrieves all the unique job titles from the emp_salaries table, ensu
 SELECT DISTINCT JobTitle 
 FROM emp_salaries;
 ```
+
+Output:
+
+![jobtitle_unique_x](https://github.com/user-attachments/assets/2c5a155b-85e6-48ba-ba99-8482283d75eb)
+
 This would return the total count of unique job titles.
 
 ```sql
 SELECT COUNT(DISTINCT JobTitle) AS Unique_Job_Titles 
 FROM emp_salaries;
 ```
+
+Output:
+
+![jobtitle_unique_count_x](https://github.com/user-attachments/assets/c2470511-e7a8-42f4-b349-2942aa9bf2ed)
+
+
 **Show Average Salary by Job Title**
 
 This query calculates the average salary for each job title in the dataset and orders the results from the highest to the lowest average salary. It helps to identify which positions are the highest paying and can be used for compensation analysis.
@@ -128,6 +160,11 @@ FROM emp_salaries
 GROUP BY JobTitle
 ORDER BY AverageSalary DESC;
 ```
+
+Output:
+
+![avg_salary_jobtitle_x](https://github.com/user-attachments/assets/eb09e34f-c0b1-4398-a5eb-213edc4cc2c5)
+
 **Count of FT vs. PT Employees**
 
 The query groups employees by their work status (FT or PT) and counts the total number of employees in each category. This information helps organizations analyze their workforce composition and adjust staffing strategies if needed.
@@ -137,6 +174,11 @@ SELECT Status, COUNT(*) AS TotalEmployees
 FROM emp_salaries
 GROUP BY Status;
 ```
+
+Output:
+
+![FT_PT_count_x](https://github.com/user-attachments/assets/2e5c11db-8e38-4854-85e2-1d95968c0f52)
+
 **Compare Average Salaries of Full-Time (FT) vs. Part-Time (PT) Employees**
 
 The query groups employees by their work status (FT or PT) and calculates the average salary for each group. This provides an overview of salary differences based on employment type, offering a basis for further analysis or adjustment of pay structures.
@@ -146,6 +188,11 @@ SELECT Status, ROUND(AVG(TotalPay), 2) AS AvgSalary
 FROM emp_salaries
 GROUP BY Status;
 ```
+
+Output:
+
+![FT_PT_avg_salary_x](https://github.com/user-attachments/assets/271d66b9-c2b1-40a6-93ca-96991b44dc71)
+
 **Employees Who Are Paid Above the Average Salary**
 
 The query selects employees whose total pay exceeds the company-wide average salary, calculated using a subquery. The results are ordered by salary in descending order, making it easy to identify the highest-paid employees.
@@ -156,6 +203,11 @@ FROM emp_salaries
 WHERE TotalPay > (SELECT AVG(TotalPay) FROM emp_salaries)
 ORDER BY TotalPay DESC;
 ```
+
+Output:
+
+![emp_above_avg_sal_desc_x](https://github.com/user-attachments/assets/475b207f-b2a7-4548-97a5-51de12948d4e)
+
 **Percentage of Employees in Each Job Category**
 
 The query calculates the proportion of employees in each job category by dividing the number of employees in a specific job title by the total number of employees. The result is rounded to two decimal places and sorted by the highest percentage.
@@ -167,6 +219,10 @@ GROUP BY JobTitle
 ORDER BY Percentage DESC;
 ```
 
+Output:
+
+![emp_percnt_jobtitle_x](https://github.com/user-attachments/assets/4b46fcfe-8bfd-4415-8c63-9b28adad6c03)
+
 **Employees with Significant Overtime Pay**
 
 The query retrieves distinct job titles and their corresponding overtime pay for employees whose overtime pay exceeds $50,000. This helps focus on high overtime earners and associated job titles without duplicating results.
@@ -177,6 +233,10 @@ FROM emp_salaries
 WHERE OvertimePay > 50000;
 ```
 
+Output:
+
+![jobtitle_OTP_above_50K_x](https://github.com/user-attachments/assets/c67462a3-056e-4f3c-b3de-f1e1dcd85162)
+
 **Average Base Pay for All Employees**
 
 This query calculates the average base salary for all employees in the dataset. The result provides a single value that represents the organization's overall base salary benchmark.
@@ -185,6 +245,11 @@ This query calculates the average base salary for all employees in the dataset. 
 SELECT AVG(BasePay) AS "Average Base Pay" 
 FROM emp_salaries;
 ```
+
+Output:
+
+![emp_avg_basepay_X](https://github.com/user-attachments/assets/5f1f4da7-a757-414a-9d19-6cb2dd3fc718)
+
 
 **Top 10 Highest Paid Employees**
 
@@ -197,6 +262,10 @@ ORDER BY TotalPay DESC
 LIMIT 10;
 ```
 
+Output:
+
+![top_10_highest_paid_emp_x](https://github.com/user-attachments/assets/9e19a408-8017-4d2e-8ce1-69043f9daaf1)
+
 **Average Pay Components for Each Employee**
 
 The query computes the average of three pay components (Base Pay, Overtime Pay, and Other Pay) for each employee. This provides a personalized breakdown of the average compensation across different earnings categories.
@@ -205,6 +274,10 @@ The query computes the average of three pay components (Base Pay, Overtime Pay, 
 SELECT EmployeeName, (BasePay + OvertimePay + OtherPay) / 3 AS Avg_Payments 
 FROM emp_salaries;
 ```
+
+Output:
+
+![emp_avg_BP_OTP_OP_x](https://github.com/user-attachments/assets/c5722b25-6c6e-4122-bd22-bce9491d7253)
 
 **Employees with "Manager" in Their Job Title**
 
@@ -216,6 +289,10 @@ FROM emp_salaries
 WHERE JobTitle LIKE '%Manager%';
 ```
 
+Output:
+
+![emp_jobtitle_manager_x](https://github.com/user-attachments/assets/52cbb618-c729-4f2c-bba3-2fb78d9dc66d)
+
 **Employees with Total Pay Between $50,000 and $75,000**
 
 The query retrieves all columns for employees whose total pay is between $50,000 and $75,000. The WHERE clause specifies the range using >= (greater than or equal to) and <= (less than or equal to) operators.
@@ -226,6 +303,11 @@ FROM emp_salaries
 WHERE TotalPay >= 50000 AND TotalPay <= 75000;
 ```
 
+Output:
+
+![emp_TP_between_50K_70K_x](https://github.com/user-attachments/assets/83b020de-d4e6-4fb6-960d-12ecc6151c4e)
+
+
 **Employees with Base Pay Less Than $50,000 or Total Pay Greater Than $100,000**
 
 The query selects all employees whose base pay is less than $50,000 or whose total pay exceeds $100,000. The OR operator is used to include both conditions, so employees fulfilling either criterion will be included in the results.
@@ -235,6 +317,10 @@ SELECT *
 FROM emp_salaries 
 WHERE BasePay < 50000 OR TotalPay > 100000;
 ```
+
+Output:
+
+![emp_BP_less_50K_TP_more_100000_x](https://github.com/user-attachments/assets/e4cdb1db-e4a2-4766-bdf1-89a15ff2d112)
 
 **Employees with Total Pay Benefits Between $125,000 and $150,000 and Job Title Containing "Director"**
 
@@ -247,6 +333,10 @@ WHERE TotalPayBenefits BETWEEN 125000 AND 150000
 AND JobTitle LIKE '%Director%';
 ```
 
+Output:
+
+![emp_TPB_between_125K_150K_director_x](https://github.com/user-attachments/assets/cced484f-e962-4780-a308-ca7d4b6031de)
+
 **Employees Ordered by Total Pay Benefits in Descending Order**
 
 The query retrieves all employee details and orders the results by the TotalPayBenefits column in descending order. This allows for easy identification of the highest-paid employees based on their total compensation.
@@ -256,6 +346,11 @@ SELECT *
 FROM emp_salaries 
 ORDER BY TotalPayBenefits DESC;
 ```
+
+Output:
+
+![emp_TPB_desc_x](https://github.com/user-attachments/assets/4390f0ba-6fb0-4690-9cb3-f174cfd54287)
+
 **Job Titles with an Average Base Pay of at Least $100,000**
 
 The query calculates the average base pay for each job title using the AVG() function. The HAVING clause filters the results to include only those job titles with an average base pay of at least $100,000. The results are then sorted in descending order to show the highest-paying job titles first.
@@ -267,6 +362,10 @@ GROUP BY JobTitle
 HAVING AVG(BasePay) >= 100000
 ORDER BY AVG(BasePay) DESC;
 ```
+
+Output:
+
+![jobtitle_avg_BP_min_100000_avg_BP_desc_x](https://github.com/user-attachments/assets/2e69982d-eeb3-47a6-acff-e56516ec4e42)
 
 **Update Base Pay of Managers by 10%**
 
