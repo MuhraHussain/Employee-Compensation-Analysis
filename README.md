@@ -9,7 +9,7 @@ Employee Compensation Insights: Data Cleaning, Preparation, and Analysis Using E
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Data Analysis](#data-analysis)
 - [Results and Findings](#results-and-findings)
-- [Reccomendations](#reccomendations)
+- [Recommendations](#recommendations)
 
 ### Project Overview
 
@@ -278,12 +278,45 @@ WHERE JobTitle LIKE '%Manager%';
 
 ### Results and Findings
 
-### Reccomendations
+Salary Trends and Job Titles:
 
+  - Average Salaries: Identified the job titles with the highest and lowest average salaries, highlighting roles such as     
+    [e.g.,   "Directors"] as top earners.
+  - Full-Time vs. Part-Time: Found that full-time employees earn significantly higher average salaries than part-time         
+    employees.
 
+Compensation Insights:
 
+  - Overtime Pay: Discovered that only [X]% of employees earn significant overtime pay, with a small subset earning over   
+    $50,000 in overtime.
+  - Top Earners: Highlighted the 10 highest-paid employees, showing a concentration of high total pay in [specific 
+    departments or roles].
 
+Anomalies and Interesting Observations:
 
+  - Identified unusual cases where base pay was low but total pay was high, likely due to significant overtime or bonuses.
+  - Observed employees with no overtime pay who still had above-average total compensation, possibly due to bonuses or other      benefits.
+    
+### Recommendations
 
+Optimize Compensation for Key Roles:
+
+  - High-paying roles like [e.g., "Directors"] contribute significantly to total payroll costs. Regular reviews of     
+    compensation packages can ensure they align with industry standards and performance metrics.
+
+Analyze High Overtime Costs:
+
+  - Employees earning over $50,000 in overtime pay may indicate workload imbalances or inefficiencies. Conduct workload     
+    audits to optimize staffing and redistribute tasks to reduce dependency on overtime.
+
+Retain Top Talent:
+
+  - The top 10 highest-paid employees represent key personnel in the organization. Consider offering incentives, bonuses, or      career advancement opportunities to retain these individuals.
+
+### Key Focus Areas for Improvement
+
+- Employee Efficiency: Reduce overtime dependency to minimize costs.
+- Fair Compensation Practices: Conduct market analysis to ensure fairness in pay.
+- Workforce Development: Invest in training programs for high-impact roles.
 
 
