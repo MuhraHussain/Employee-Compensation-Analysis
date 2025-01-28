@@ -12,22 +12,26 @@ Employee Compensation Insights: Data Cleaning, Preparation, and Analysis Using E
 - [Recommendations](#recommendations)
 - [Key Focus Areas for Improvement](#key-focus-areas-for-improvement)
 
+
 ### Project Overview
 
 This project focuses on analyzing employee compensation data to uncover insights about salaries, benefits, and job roles. The process began with data cleaning and preparation in Excel to address formatting issues and ensure consistency. SQL was then used to perform in-depth analysis, including calculating average salaries, comparing compensation across job titles, identifying top earners, and more. The project demonstrates skills in data preprocessing, querying, and deriving actionable insights from structured data.
 
+
 ### Data Sources
 
-Employee Data: The dataset used for this analysis is the "employee_salaries.csv" file, containing information about the employees, their job titles, compensation details, etc.
+Employee Data: The dataset used for this analysis is the "Salaries.csv" file, containing information about the employees, their job titles, compensation details, etc. The "SF Salaries" dataset was found on Kaggle. The cleaned file is "employee_salaries.csv".
+
 
 ### Tools
 
 - Excel (Data cleaning and preparation)
 - SQL (Data analysis)
 
+
 ### Data Cleaning and Preparation
 
-This step was performed in Excel, with the detailed steps below:
+This step was performed in Excel, with summarized steps taken below:
 
 - Removed empty "Notes" column
 - Find and Replace [ ] with "NULL", "Not Provided" with "NULL"
@@ -36,6 +40,7 @@ This step was performed in Excel, with the detailed steps below:
 - Removed duplicates
 - The formula below was used for removing commas before job titles that came in brackets, while leaving them present following job titles that do not contain brackets. (e.g: CAPTAIN, FIRE SUPPRESSION keeps the comma, while BATTALION CHIEF, (FIRE DEPARTMENT) gets the comma removed and is now BATTALION CHIEF (FIRE DEPARTMENT).
 - IF(IFERROR(FIND(",", A2), 0), IF (MID(A2, FIND (",", A2) + 2, 1) = "("SUBSTITUTE(A2, ",", ""), A2), A2)
+
 
 ### Exploratory Data Analysis
 
@@ -52,6 +57,7 @@ This step was performed in Excel, with the detailed steps below:
   - Observed a wide range of salaries across job titles.
   - Noted a few job categories with consistently higher base pay.
 
+
 ### Data Analysis
 
 **Step 1: Database Creation**
@@ -62,9 +68,12 @@ The first step in any SQL-based data analysis project is to set up a database to
 CREATE DATABASE Salaries;
 USE Salaries;
 ```
+
+
 **Step 2: Import Cleaned Dataset**
 
 Imported the dataset using the import wizard into a newly created table [emp_salaries]
+
 
 **Step 3: Queries**
 
@@ -89,6 +98,7 @@ This query is used to rename the Id column to ID for better readability.
 ALTER TABLE emp_salaries
 RENAME COLUMN Id to ID;
 ```
+
 
 **Identifying Duplicate Records**
 
@@ -395,42 +405,31 @@ SET BasePay = BasePay * 1.1
 WHERE JobTitle LIKE '%Manager%';
 ```
 
+
 ### Results and Findings
 
-**Salary Trends and Job Titles:**
-
   - Average Salaries: Identified the job titles with the highest and lowest average salaries, highlighting roles such as     
-    [e.g.,   "Directors"] as top earners.
+    [e.g. "Directors"] as top earners.
   - Full-Time vs. Part-Time: Found that full-time employees earn significantly higher average salaries than part-time         
     employees.
-
-**Compensation Insights:**
-
-  - Overtime Pay: Discovered that only [X]% of employees earn significant overtime pay, with a small subset earning over   
-    $50,000 in overtime.
-  - Top Earners: Highlighted the 10 highest-paid employees, showing a concentration of high total pay in [specific 
-    departments or roles].
-
-**Anomalies and Interesting Observations:**
-
   - Identified unusual cases where base pay was low but total pay was high, likely due to significant overtime or bonuses.
   - Observed employees with no overtime pay who still had above-average total compensation, possibly due to bonuses or other benefits.
-    
+
+
 ### Recommendations
 
 **Optimize Compensation for Key Roles:**
 
-  - High-paying roles like [e.g., "Directors"] contribute significantly to total payroll costs. Regular reviews of     
-    compensation packages can ensure they align with industry standards and performance metrics.
+  - High-paying roles like [e.g., "Directors"] contribute significantly to total payroll costs. Regular reviews of compensation packages can ensure they align with industry standards and performance metrics.
 
 **Analyze High Overtime Costs:**
 
-  - Employees earning over $50,000 in overtime pay may indicate workload imbalances or inefficiencies. Conduct workload     
-    audits to optimize staffing and redistribute tasks to reduce dependency on overtime.
+  - Employees earning over $50,000 in overtime pay may indicate workload imbalances or inefficiencies. Conduct workload audits to optimize staffing and redistribute tasks to reduce dependency on overtime.
 
 **Retain Top Talent:**
 
-  - The top 10 highest-paid employees represent key personnel in the organization. Consider offering incentives, bonuses, or      career advancement opportunities to retain these individuals.
+  - The top 10 highest-paid employees represent key personnel in the organization. Consider offering incentives, bonuses, or career advancement opportunities to retain these individuals.
+
 
 ### Key Focus Areas for Improvement
 
