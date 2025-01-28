@@ -78,7 +78,8 @@ SELECT * FROM emp_salaries;
 
 Output:
 
-![select_all_from_table_x](https://github.com/user-attachments/assets/26804129-7a8c-4d47-af88-31cde2883340)
+![select_all_from_table_x](https://github.com/user-attachments/assets/e6f27069-6fc5-40f1-9013-384a82f9d34e)
+
 
 **Renaming Column** 
 
@@ -88,6 +89,7 @@ This query is used to rename the Id column to ID for better readability.
 ALTER TABLE emp_salaries
 RENAME COLUMN Id to ID;
 ```
+
 **Identifying Duplicate Records**
 
 This query is used to check for duplicate entries in the emp_salaries table based on the ID column. It ensures data integrity by highlighting any instances where the same ID appears more than once.
@@ -99,7 +101,8 @@ GROUP BY Id HAVING COUNT(*) >1;
 
 Output:
 
-![duplicate_check_ID_x](https://github.com/user-attachments/assets/12317f5c-62dd-4783-83f7-6067a404ecfd)
+![duplicate_check_ID_x](https://github.com/user-attachments/assets/3995984c-0a9a-439d-918d-9525e1e1536b)
+
 
 **Display Employee Names and Their Job Titles**
 
@@ -110,7 +113,8 @@ FROM emp_salaries;
 
 Output:
 
-![emp_name_jobtitle_x](https://github.com/user-attachments/assets/4252ef7c-1917-4f4c-9724-fdbe281c50dc)
+![emp_name_jobtitle_x](https://github.com/user-attachments/assets/3401c030-cd02-4527-904f-c6b00a4e5562)
+
 
 **Total Number of Employees**
 
@@ -122,7 +126,7 @@ SELECT COUNT(*) AS Total_Employees FROM emp_salaries;
 
 Output:
 
-![emp_num_count_x](https://github.com/user-attachments/assets/94511066-879a-4243-a3ef-99e56247221d)
+![emp_num_count_x](https://github.com/user-attachments/assets/005e8229-306e-45d1-bddc-57753b6fe280)
 
 
 **Unique Job Titles**
@@ -136,7 +140,8 @@ FROM emp_salaries;
 
 Output:
 
-![jobtitle_unique_x](https://github.com/user-attachments/assets/2c5a155b-85e6-48ba-ba99-8482283d75eb)
+![jobtitle_unique_x](https://github.com/user-attachments/assets/4ff570b2-25da-405b-ac7e-985070d6d95c)
+
 
 This would return the total count of unique job titles.
 
@@ -147,7 +152,7 @@ FROM emp_salaries;
 
 Output:
 
-![jobtitle_unique_count_x](https://github.com/user-attachments/assets/c2470511-e7a8-42f4-b349-2942aa9bf2ed)
+![jobtitle_unique_count_x](https://github.com/user-attachments/assets/801b6df8-7919-42b8-893e-f86adafc60ec)
 
 
 **Show Average Salary by Job Title**
@@ -163,7 +168,8 @@ ORDER BY AverageSalary DESC;
 
 Output:
 
-![avg_salary_jobtitle_x](https://github.com/user-attachments/assets/eb09e34f-c0b1-4398-a5eb-213edc4cc2c5)
+![avg_salary_jobtitle_x](https://github.com/user-attachments/assets/277efbb7-b8f8-401b-a913-e6fcbfeab28e)
+
 
 **Count of FT vs. PT Employees**
 
@@ -177,7 +183,8 @@ GROUP BY Status;
 
 Output:
 
-![FT_PT_count_x](https://github.com/user-attachments/assets/2e5c11db-8e38-4854-85e2-1d95968c0f52)
+![FT_PT_count_x](https://github.com/user-attachments/assets/4f9b05e1-2463-4871-93c1-6d3144d286a5)
+
 
 **Compare Average Salaries of Full-Time (FT) vs. Part-Time (PT) Employees**
 
@@ -191,7 +198,8 @@ GROUP BY Status;
 
 Output:
 
-![FT_PT_avg_salary_x](https://github.com/user-attachments/assets/271d66b9-c2b1-40a6-93ca-96991b44dc71)
+![FT_PT_avg_salary_x](https://github.com/user-attachments/assets/9a54c887-7a1f-4006-9dc4-e348328c2b7a)
+
 
 **Employees Who Are Paid Above the Average Salary**
 
@@ -206,7 +214,8 @@ ORDER BY TotalPay DESC;
 
 Output:
 
-![emp_above_avg_sal_desc_x](https://github.com/user-attachments/assets/475b207f-b2a7-4548-97a5-51de12948d4e)
+![emp_above_avg_sal_desc_x](https://github.com/user-attachments/assets/22e2d575-c25b-47f0-ba13-f488c24825e2)
+
 
 **Percentage of Employees in Each Job Category**
 
@@ -221,7 +230,8 @@ ORDER BY Percentage DESC;
 
 Output:
 
-![emp_percnt_jobtitle_x](https://github.com/user-attachments/assets/4b46fcfe-8bfd-4415-8c63-9b28adad6c03)
+![emp_percnt_jobtitle_x](https://github.com/user-attachments/assets/ce426ef1-79a9-46f5-b13f-48bc5a9c0f19)
+
 
 **Employees with Significant Overtime Pay**
 
@@ -235,7 +245,8 @@ WHERE OvertimePay > 50000;
 
 Output:
 
-![jobtitle_OTP_above_50K_x](https://github.com/user-attachments/assets/c67462a3-056e-4f3c-b3de-f1e1dcd85162)
+![jobtitle_OTP_above_50K_x](https://github.com/user-attachments/assets/4d556d9a-972a-4bbe-8390-92808fa3be40)
+
 
 **Average Base Pay for All Employees**
 
@@ -248,7 +259,7 @@ FROM emp_salaries;
 
 Output:
 
-![emp_avg_basepay_X](https://github.com/user-attachments/assets/5f1f4da7-a757-414a-9d19-6cb2dd3fc718)
+![emp_avg_basepay_X](https://github.com/user-attachments/assets/97eddf24-360f-4710-91f0-bd17d5c3b5db)
 
 
 **Top 10 Highest Paid Employees**
@@ -264,7 +275,8 @@ LIMIT 10;
 
 Output:
 
-![top_10_highest_paid_emp_x](https://github.com/user-attachments/assets/9e19a408-8017-4d2e-8ce1-69043f9daaf1)
+![top_10_highest_paid_emp_x](https://github.com/user-attachments/assets/82b29453-a388-46d5-bc1f-c8dee1eb27a4)
+
 
 **Average Pay Components for Each Employee**
 
@@ -277,7 +289,7 @@ FROM emp_salaries;
 
 Output:
 
-![emp_avg_BP_OTP_OP_x](https://github.com/user-attachments/assets/c66ddcb9-9d16-42cf-acae-c4757ac8b7bd)
+![emp_avg_BP_OTP_OP_x](https://github.com/user-attachments/assets/9cd47579-6809-4934-bcdd-e857b804fc19)
 
 
 **Employees with "Manager" in Their Job Title**
@@ -292,7 +304,8 @@ WHERE JobTitle LIKE '%Manager%';
 
 Output:
 
-![emp_jobtitle_manager_x](https://github.com/user-attachments/assets/52cbb618-c729-4f2c-bba3-2fb78d9dc66d)
+![emp_jobtitle_manager_x](https://github.com/user-attachments/assets/38aaaffa-80bf-42b2-b759-3841dc254062)
+
 
 **Employees with Total Pay Between $50,000 and $75,000**
 
@@ -306,7 +319,7 @@ WHERE TotalPay >= 50000 AND TotalPay <= 75000;
 
 Output:
 
-![emp_TP_between_50K_70K_x](https://github.com/user-attachments/assets/83b020de-d4e6-4fb6-960d-12ecc6151c4e)
+![emp_TP_between_50K_70K_x](https://github.com/user-attachments/assets/c4a3cfad-9b5d-4fd0-95dc-c2b32188ef1c)
 
 
 **Employees with Base Pay Less Than $50,000 or Total Pay Greater Than $100,000**
@@ -321,7 +334,8 @@ WHERE BasePay < 50000 OR TotalPay > 100000;
 
 Output:
 
-![emp_BP_less_50K_TP_more_100000_x](https://github.com/user-attachments/assets/e4cdb1db-e4a2-4766-bdf1-89a15ff2d112)
+![emp_BP_less_50K_TP_more_100000_x](https://github.com/user-attachments/assets/9c2af977-ea67-4c27-b612-db04072a4b2b)
+
 
 **Employees with Total Pay Benefits Between $125,000 and $150,000 and Job Title Containing "Director"**
 
@@ -336,7 +350,8 @@ AND JobTitle LIKE '%Director%';
 
 Output:
 
-![emp_TPB_between_125K_150K_director_x](https://github.com/user-attachments/assets/cced484f-e962-4780-a308-ca7d4b6031de)
+![emp_TPB_between_125K_150K_director_x](https://github.com/user-attachments/assets/1a0a2379-82eb-4ec2-b9ab-2df51491d441)
+
 
 **Employees Ordered by Total Pay Benefits in Descending Order**
 
@@ -350,7 +365,8 @@ ORDER BY TotalPayBenefits DESC;
 
 Output:
 
-![emp_TPB_desc_x](https://github.com/user-attachments/assets/4390f0ba-6fb0-4690-9cb3-f174cfd54287)
+![emp_TPB_desc_x](https://github.com/user-attachments/assets/95c8fba1-6f78-43fc-aa25-056c678a400b)
+
 
 **Job Titles with an Average Base Pay of at Least $100,000**
 
@@ -366,7 +382,8 @@ ORDER BY AVG(BasePay) DESC;
 
 Output:
 
-![jobtitle_avg_BP_min_100000_avg_BP_desc_x](https://github.com/user-attachments/assets/2e69982d-eeb3-47a6-acff-e56516ec4e42)
+![jobtitle_avg_BP_min_100000_avg_BP_desc_x](https://github.com/user-attachments/assets/337f6922-2e52-4aae-9887-989328700b11)
+
 
 **Update Base Pay of Managers by 10%**
 
@@ -397,7 +414,7 @@ WHERE JobTitle LIKE '%Manager%';
 **Anomalies and Interesting Observations:**
 
   - Identified unusual cases where base pay was low but total pay was high, likely due to significant overtime or bonuses.
-  - Observed employees with no overtime pay who still had above-average total compensation, possibly due to bonuses or other      benefits.
+  - Observed employees with no overtime pay who still had above-average total compensation, possibly due to bonuses or other benefits.
     
 ### Recommendations
 
