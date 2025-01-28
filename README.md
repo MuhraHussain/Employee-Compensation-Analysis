@@ -20,7 +20,7 @@ This project focuses on analyzing employee compensation data to uncover insights
 
 ### Data Sources
 
-Employee Data: The dataset used for this analysis is the "Salaries.csv" file, containing information about the employees, their job titles, compensation details, etc. The "SF Salaries" dataset was found on Kaggle. The cleaned file is "employee_salaries.csv".
+Employee Data: The dataset used for this analysis is the "Salaries.csv" file, containing information about the employees, their job titles, compensation details, etc. The "SF Salaries" dataset was found on Kaggle. The cleaned file is "Salaries_cleaned_final.csv".
 
 
 ### Tools
